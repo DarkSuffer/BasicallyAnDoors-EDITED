@@ -1099,15 +1099,15 @@ local window_credits = window_credits_tab:CreateSection({
 	Name = "Credits"
 })
 window_credits:AddLabel({ Name = "Original V3RM post: 1200475" })
-window_credits:AddLabel({ Name = "Original by:" });window_credits:AddLabel({ Name = "zoophiliaphobic#6287" })
-window_credits:AddLabel({ Name = "Edited by: mstudio45" })
+window_credits:AddLabel({ Name = "Original by:" });window_credits:AddLabel({ Name = "Nuñez" })
+window_credits:AddLabel({ Name = "Edited by: Nuñez (DarknessVarious YT)" })
 window_credits:AddLabel({ Name = "UI Library suggestion:" });window_credits:AddLabel({ Name = "actu#2004" })
-window_credits:AddLabel({ Name = "Discord Invite: vC9kRbMVCq" })
+window_credits:AddLabel({ Name = "Discord Invite: a6Ttgs2gBr" })
 if RequestFunction then
 	window_credits:AddButton({
 		Name = "Join POOPDOORS EDITED\nDiscord Server",
 		Callback = function()
-			JoinDiscord("vC9kRbMVCq")
+			JoinDiscord("a6Ttgs2gBr")
 		end
 	})
 end
