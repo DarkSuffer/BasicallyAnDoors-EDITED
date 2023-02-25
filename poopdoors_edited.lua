@@ -1,7 +1,7 @@
 -- edited by mstudio45 | original by https://v3rmillion.net/member.php?action=profile&uid=1802731 
 -- https://v3rmillion.net/showthread.php?tid=1200475
 
-local POOPDOORS_START_TIME = os.time()
+local NUNEZSCRIPTS_START_TIME = os.time()
 local customnotifid = "10469938989"
 local oldcustomnotifid = "4590657391"
 function waitframes(ii) for i = 1, ii do task.wait() end end
@@ -176,7 +176,7 @@ function PathModule.new(char, goal, agentParameters, jumpingAllowed, offset)
 		PathModule.visualize(waypoints)
 
 		for i, v in pairs(waypoints) do
-			if POOPDOORSLOADED == false or not v then return end
+			if NUNEZSCRIPTSLOADED == false or not v then return end
 
 			if char.HumanoidRootPart.Anchored == false then
 				if jumpingAllowed == true then if v.Action == Enum.PathWaypointAction.Jump then Humanoid:ChangeState(Enum.HumanoidStateType.Jumping) end end
@@ -192,7 +192,7 @@ function PathModule.new(char, goal, agentParameters, jumpingAllowed, offset)
 	end
 end
 
---local library = loadstring(game:HttpGet(--[['https://pastebin.com/raw/vPWzQEC8'--]]"https://raw.githubusercontent.com/mstudio45/poopdoors_edited/main/library.lua"))()
+--local library = loadstring(game:HttpGet(--[['https://pastebin.com/raw/vPWzQEC8'--]]""))()
 local isMobile = false
 local mobiletoggles,mobiletoggleerr=pcall(function()
 	local platform = game:GetService("UserInputService"):GetPlatform()
@@ -202,7 +202,7 @@ end)
 local Library = nil
 --if mobiletoggles then
 if isMobile == true then
-	Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/mstudio45/poopdoors_edited/main/uilibs/Mobile.lua?" .. tostring(math.random(0, 9999999)), true))()
+	Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkSuffer/BasicallyAnDoors-EDITED/main/uilibs/Mobile.lua?" .. tostring(math.random(0, 9999999)), true))()
 else
 	Library = loadstring(game:GetObjects("rbxassetid://7657867786")[1].Source)()
 end
@@ -213,40 +213,40 @@ end
 local currentver = "1.8"
 local gui_data = nil
 local s,e = pcall(function()
-	gui_data = game:HttpGet(("https://raw.githubusercontent.com/mstudio45/poopdoors_edited/main/gui_data.json"), true)
+	gui_data = game:HttpGet(("https://raw.githubusercontent.com/DarkSuffer/BasicallyAnDoors-EDITED/main/gui_data.json"), true)
 	gui_data = game:GetService("HttpService"):JSONDecode(gui_data)
 end)
 if e then
-	oldwarnmessage("POOPDOORS EDITED v"..currentver, "Failed to get script data.", 10)
+	oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "Failed to get script data.", 10)
 end
 
-if POOPDOORSLOADED == true then warnmessage("POOPDOORS EDITED v"..currentver, "GUI already loaded!", "", 10) return end
+if NUNEZSCRIPTSLOADED == true then warnmessage("NUÑEZ SCRIPTS v"..currentver, "GUI already loaded!", "", 10) return end
 if game.PlaceId ~= 6839171747 and game.PlaceId == 6516141723 then 
-	--warnmessage("POOPDOORS EDITED v"..currentver, "You need to join a game to run this script.", 10) 
-	confirmnotification("POOPDOORS EDITED v"..currentver, "Do you want to join a game?", 15, function(state)
+	--warnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to join a game to run this script.", 10) 
+	confirmnotification("NUÑEZ SCRIPTS v"..currentver, "Do you want to join a game?", 15, function(state)
 		if state == true then
 			task.spawn(function()
-				loadstring(game:HttpGet(("https://raw.githubusercontent.com/mstudio45/poopdoors_edited/main/joinsolo.lua?" .. tostring(math.random(0, 9999999))), true))()
+				loadstring(game:HttpGet(("https://raw.githubusercontent.com/DarkSuffer/BasicallyAnDoors-EDITED/main/joinsolo.lua?" .. tostring(math.random(0, 9999999))), true))()
 			end)
 		end
 	end)
 	return
 end
 if game.PlaceId ~= 6839171747 and game.PlaceId ~= 6516141723 then 
-	oldwarnmessage("POOPDOORS EDITED v"..currentver, "You need to join DOORS to run this script.", 10) 
+	oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to join DOORS to run this script.", 10) 
 	return
 end
 if gui_data ~= nil then
 	if currentver ~= gui_data.ver or gui_data.ver ~= currentver then
-		warnmessage("POOPDOORS EDITED v"..currentver, "You are using an outdated version of this script", "Loading latest version.", 10) 
+		warnmessage("NUÑEZ SCRIPTS v"..currentver, "You are using an outdated version of this script", "Loading latest version.", 10) 
 		loadstring(game:HttpGet((gui_data.loadstring.."?" .. tostring(math.random(0, 9999999)) ),true))()
 		return
 	else
 		currentver = tostring(gui_data.ver)
 	end
 end
-pcall(function() getgenv().POOPDOORSLOADED = true end)
-normalmessage("POOPDOORS EDITED v"..currentver, "Loading script...", "", 2)
+pcall(function() getgenv().NUNEZSCRIPTSLOADED = true end)
+normalmessage("NUÑEZ SCRIPTS v"..currentver, "Loading script...", "", 2)
 if gui_data ~= nil then
 	oldnormalmessage("INFO", gui_data.changelog, 20)
 end
@@ -277,7 +277,7 @@ end
 function JoinDiscord(InviteCodee)
 	InviteCodee = string.gsub(InviteCodee, "https://discord.gg/", "");local Settings = { InviteCode = InviteCodee --[[add your invite code here (without the "https://discord.gg/" part)--]] }
 
-	if not RequestFunction then oldwarnmessage("POOPDOORS EDITED v"..currentver, "Your executor does not support http requests.", 5);return end
+	if not RequestFunction then oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "Your executor does not support http requests.", 5);return end
 	for i = 6453, 6464 do
 		task.spawn(function()
 			local Request = RequestFunction({
@@ -688,7 +688,7 @@ end
 
 
 local GUIWindow = Library:CreateWindow({
-	Name = "POOPDOORS EDITED v".. currentver,
+	Name = "NUÑEZ SCRIPTS v".. currentver,
 	Themeable = false
 })
 
@@ -705,16 +705,16 @@ local scriptLoaded = false
 -- Config system
 local curautoloadtextlabel
 if isfolder and makefolder and listfiles and writefile and delfile then
-	local POOPDOORS_EDITED_FOLDER_NAME = "POOPDOORS_EDITED"
-	local function checkdir() if not isfolder(POOPDOORS_EDITED_FOLDER_NAME) then makefolder(POOPDOORS_EDITED_FOLDER_NAME) end end
+	local NUNEZSCRIPTS_EDITED_FOLDER_NAME = "NUNEZSCRIPTS_EDITED"
+	local function checkdir() if not isfolder(NUNEZSCRIPTS_EDITED_FOLDER_NAME) then makefolder(NUNEZSCRIPTS_EDITED_FOLDER_NAME) end end
 	checkdir()
 
 	local filetablelist = {}	
 	function reloadList(ConfigDropdowne)
 		filetablelist = {}
-		for _,v in pairs(listfiles(POOPDOORS_EDITED_FOLDER_NAME)) do
+		for _,v in pairs(listfiles(NUNEZSCRIPTS_EDITED_FOLDER_NAME)) do
 			local filename = v
-			filename = string.gsub(filename, "POOPDOORS_EDITED", "")
+			filename = string.gsub(filename, "NUNEZSCRIPTS_EDITED", "")
 			filename = filename:sub(2)
 			filename = string.gsub(filename, ".json", "")
 			if not filename:match("autostart.txt") then
@@ -751,15 +751,15 @@ if isfolder and makefolder and listfiles and writefile and delfile then
 	function saveConfig(name, replace)
 		if replace == nil then replace = false end
 
-		local fileexists = isfile(POOPDOORS_EDITED_FOLDER_NAME.."/"..name..".json")
+		local fileexists = isfile(NUNEZSCRIPTS_EDITED_FOLDER_NAME.."/"..name..".json")
 		if replace == false then
 			oldnormalmessage("CONFIGS", "Trying to save config called '"..name.."'.", 5)
-			if not isfile(POOPDOORS_EDITED_FOLDER_NAME.."/"..name..".json") then
+			if not isfile(NUNEZSCRIPTS_EDITED_FOLDER_NAME.."/"..name..".json") then
 				local s,e
 				repeat task.wait()
 					s,e = pcall(function()
 						local jsonflags = game.HttpService:JSONEncode(flags)
-						writefile(POOPDOORS_EDITED_FOLDER_NAME.."/"..name..".json", jsonflags)
+						writefile(NUNEZSCRIPTS_EDITED_FOLDER_NAME.."/"..name..".json", jsonflags)
 					end)
 				until not e and s
 				oldnormalmessage("CONFIGS", "Succesfully saved a config called '"..name.."'.", 5)
@@ -780,7 +780,7 @@ if isfolder and makefolder and listfiles and writefile and delfile then
 			repeat task.wait()
 				s,e = pcall(function()
 					local jsonflags = game.HttpService:JSONEncode(flags)
-					writefile(POOPDOORS_EDITED_FOLDER_NAME.."/"..name..".json", jsonflags)
+					writefile(NUNEZSCRIPTS_EDITED_FOLDER_NAME.."/"..name..".json", jsonflags)
 				end)
 			until not e and s
 			oldnormalmessage("CONFIGS", "Succesfully overwrited a config called '"..name.."'.", 5)
@@ -790,8 +790,8 @@ if isfolder and makefolder and listfiles and writefile and delfile then
 	function loadConfig(name, notifs)
 		if notifs == nil then notifs = true end
 		if notifs == true then oldnormalmessage("CONFIGS", "Trying to load config called '"..name.."'.", 5) end
-		if isfile(POOPDOORS_EDITED_FOLDER_NAME.."/"..name..".json") then
-			local jsonecoded = readfile(POOPDOORS_EDITED_FOLDER_NAME.."/"..name..".json")
+		if isfile(NUNEZSCRIPTS_EDITED_FOLDER_NAME.."/"..name..".json") then
+			local jsonecoded = readfile(NUNEZSCRIPTS_EDITED_FOLDER_NAME.."/"..name..".json")
 			local flagsjson = game.HttpService:JSONDecode(jsonecoded)
 
 			for name, value in pairs(flagsjson) do
@@ -814,11 +814,11 @@ if isfolder and makefolder and listfiles and writefile and delfile then
 	function deleteConfig(name, notifs)
 		if notifs == nil then notifs = true end
 		if notifs == true then oldnormalmessage("CONFIGS", "Trying to delete config called '"..name.."'.", 5) end
-		if isfile(POOPDOORS_EDITED_FOLDER_NAME.."/"..name..".json") then
+		if isfile(NUNEZSCRIPTS_EDITED_FOLDER_NAME.."/"..name..".json") then
 			local s,e
 			repeat task.wait()
 				s,e = pcall(function()
-					delfile(POOPDOORS_EDITED_FOLDER_NAME.."/"..name..".json")
+					delfile(NUNEZSCRIPTS_EDITED_FOLDER_NAME.."/"..name..".json")
 				end)
 			until not e and s
 
@@ -882,7 +882,7 @@ if isfolder and makefolder and listfiles and writefile and delfile then
 			local s,e
 			repeat task.wait()
 				s,e = pcall(function()
-					writefile(POOPDOORS_EDITED_FOLDER_NAME.."/autostart.txt", ConfigDropdown:Get())
+					writefile(NUNEZSCRIPTS_EDITED_FOLDER_NAME.."/autostart.txt", ConfigDropdown:Get())
 				end)
 			until not e and s
 			curautoloadtextlabel:Set(ConfigDropdown:Get())
@@ -895,7 +895,7 @@ if isfolder and makefolder and listfiles and writefile and delfile then
 			local s,e
 			repeat task.wait()
 				s,e = pcall(function()
-					delfile(POOPDOORS_EDITED_FOLDER_NAME.."/autostart.txt")
+					delfile(NUNEZSCRIPTS_EDITED_FOLDER_NAME.."/autostart.txt")
 				end)
 			until not e and s
 			oldnormalmessage("CONFIGS", "Config called '"..curautoloadtextlabel:Get().."' will not automaticly load anymore.", 5)
@@ -906,9 +906,9 @@ if isfolder and makefolder and listfiles and writefile and delfile then
 	reloadList(ConfigDropdown)
 	task.spawn(function()
 		repeat task.wait() until scriptLoaded == true
-		if isfile(POOPDOORS_EDITED_FOLDER_NAME.."/autostart.txt") then
-			local autostart_name = readfile(POOPDOORS_EDITED_FOLDER_NAME.."/autostart.txt")
-			if isfile(POOPDOORS_EDITED_FOLDER_NAME.."/"..autostart_name..".json") then
+		if isfile(NUNEZSCRIPTS_EDITED_FOLDER_NAME.."/autostart.txt") then
+			local autostart_name = readfile(NUNEZSCRIPTS_EDITED_FOLDER_NAME.."/autostart.txt")
+			if isfile(NUNEZSCRIPTS_EDITED_FOLDER_NAME.."/"..autostart_name..".json") then
 				curautoloadtextlabel:Set(autostart_name)
 				loadConfig(autostart_name, false)
 				task.wait(2.5)
@@ -918,7 +918,7 @@ if isfolder and makefolder and listfiles and writefile and delfile then
 				local s,e
 				repeat task.wait()
 					s,e = pcall(function()
-						delfile(POOPDOORS_EDITED_FOLDER_NAME.."/autostart.txt")
+						delfile(NUNEZSCRIPTS_EDITED_FOLDER_NAME.."/autostart.txt")
 					end)
 				until not e and s
 			end
@@ -1026,7 +1026,7 @@ newnotificationsettings:AddButton({
 newnotificationsettings:AddButton({
 	Name = "Test Notification",
 	Callback = function()
-		normalmessage("POOPDOORS EDITED v"..currentver, "This is a test!", "Hey.", 5, nil, "TEST NOTIFICATION")
+		normalmessage("NUÑEZ SCRIPTS v"..currentver, "This script was made by Nuñez!", "Hey.", 5, nil, "TEST NOTIFICATION")
 	end
 })
 
@@ -1090,7 +1090,7 @@ oldnotificationsettings:AddButton({
 oldnotificationsettings:AddButton({
 	Name = "Test Notification",
 	Callback = function()
-		oldnormalmessage("POOPDOORS EDITED v"..currentver.." [TEST]", "This is a test!", 5)
+		oldnormalmessage("NUÑEZ SCRIPTS v"..currentver.." [TEST]", "This is a test!", 5)
 	end
 })
 
@@ -1105,7 +1105,7 @@ window_credits:AddLabel({ Name = "UI Library suggestion:" });window_credits:AddL
 window_credits:AddLabel({ Name = "Discord Invite: a6Ttgs2gBr" })
 if RequestFunction then
 	window_credits:AddButton({
-		Name = "Join POOPDOORS EDITED\nDiscord Server",
+		Name = "Join NUÑEZ SCRIPTS\nDiscord Server",
 		Callback = function()
 			JoinDiscord("a6Ttgs2gBr")
 		end
@@ -1155,7 +1155,7 @@ local clientglowbtn = window_player:AddToggle({
 			l.Brightness = 2
 			l.Parent = char.PrimaryPart
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.light
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.light
 			l:Destroy() 
 		end
 	end
@@ -1187,7 +1187,7 @@ local cfullbrightbtn = window_player:AddToggle({
 			doFullbright()
 
 			local coneee = game:GetService("Lighting").LightingChanged:Connect(doFullbright)
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.fullbright
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.fullbright
 
 			coneee:Disconnect()
 			game:GetService("Lighting").Ambient = oldAmbient
@@ -1210,13 +1210,13 @@ if fireproximityprompt then
 				fireproximityprompt(p)
 			end)
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.instapp
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.instapp
 			holdconnect:Disconnect()
 		end
 	})
 	buttons.instapp = instausebrn
 else
-	warnmessage("POOPDOORS EDITED v"..currentver, "You need to have fireproximityprompt function for 'instant use'.", 7)
+	warnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to have fireproximityprompt function for 'instant use'.", 7)
 end
 
 local walkspeedslider = window_player:AddSlider({
@@ -1248,7 +1248,7 @@ buttons.walkspeedtoggle = walkspeedtglbtn
 window_player:AddButton({
 	Name = "Reset Character",
 	Callback = function()
-		confirmnotification("POOPDOORS EDITED v"..currentver, "Are you sure to reset your character?", 15, function(state)
+		confirmnotification("NUÑEZ SCRIPTS v"..currentver, "Are you sure to reset your character?", 15, function(state)
 			if state == true then
 				game.Players.LocalPlayer.Character.Humanoid.Health = 0
 			end
@@ -1389,7 +1389,7 @@ local espdoorsbtn = window_esp:AddToggle({
 				setup(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)])
 			end
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.espdoors
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.espdoors
 			addconnect:Disconnect()
 
 			for i,v in pairs(esptable.doors) do
@@ -1436,7 +1436,7 @@ buttons.espdoors = espdoorsbtn
 
 			setup(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)])
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.fakeespdoors
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.fakeespdoors
 			addconnect:Disconnect()
 
 			for i,v in pairs(esptable.fakedoors) do
@@ -1525,7 +1525,7 @@ local espkeysbtn = window_esp:AddToggle({
 
 			setup(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)])
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.espkeys
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.espkeys
 			addconnect:Disconnect()
 
 			for i,v in pairs(esptable.keys) do
@@ -1572,7 +1572,7 @@ local espitemsbtn = window_esp:AddToggle({
 					end
 
 					task.spawn(function()
-						repeat task.wait() until POOPDOORSLOADED == false or not flags.espitems
+						repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.espitems
 						subaddcon:Disconnect()  
 					end) 
 				end 
@@ -1594,7 +1594,7 @@ local espitemsbtn = window_esp:AddToggle({
 				setup(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)])
 			end
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.espitems
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.espitems
 			addconnect:Disconnect()
 
 			for i,v in pairs(esptable.items) do
@@ -1663,7 +1663,7 @@ local espbooksbtn = window_esp:AddToggle({
 				setup(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)])
 			end
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.espbooks
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.espbooks
 			addconnect:Disconnect()
 
 			for i,v in pairs(esptable.books) do
@@ -1743,7 +1743,7 @@ local esprusbtn = window_esp:AddToggle({
 
 			setup(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)])
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.esprush
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.esprush
 			addconnect:Disconnect()
 			roomconnect:Disconnect()
 
@@ -1801,7 +1801,7 @@ local esplockerbrn = window_esp:AddToggle({
 					end
 
 					task.spawn(function()
-						repeat task.wait() until POOPDOORSLOADED == false or not flags.esplocker
+						repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.esplocker
 						subaddcon:Disconnect()  
 					end)
 				else
@@ -1815,7 +1815,7 @@ local esplockerbrn = window_esp:AddToggle({
 					end
 
 					task.spawn(function()
-						repeat task.wait() until POOPDOORSLOADED == false or not flags.esplocker
+						repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.esplocker
 						subaddcon:Disconnect()  
 					end) 
 				end
@@ -1834,7 +1834,7 @@ local esplockerbrn = window_esp:AddToggle({
 				setup(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value+1)])
 			end
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.esplocker
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.esplocker
 			addconnect:Disconnect()
 
 			for i,v in pairs(esptable.lockers) do
@@ -1897,7 +1897,7 @@ local espchesbtn = window_esp:AddToggle({
 				end
 
 				task.spawn(function()
-					repeat task.wait() until POOPDOORSLOADED == false or not flags.espchest
+					repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.espchest
 					subaddcon:Disconnect()  
 				end)  
 			end
@@ -1918,7 +1918,7 @@ local espchesbtn = window_esp:AddToggle({
 				setup(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)])
 			end
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.espchest
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.espchest
 			addconnect:Disconnect()
 
 			for i,v in pairs(esptable.chests) do
@@ -1976,7 +1976,7 @@ local esphumansbtn = window_esp:AddToggle({
 				personesp(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)])
 			end
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.esphumans
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.esphumans
 			addconnect:Disconnect()
 
 			for i,v in pairs(esptable.people) do
@@ -2026,7 +2026,7 @@ local espgoldbtn = window_esp:AddToggle({
 				end
 
 				task.spawn(function()
-					repeat task.wait() until POOPDOORSLOADED == false or not flags.espchest
+					repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.espchest
 					subaddcon:Disconnect()  
 				end)  
 			end
@@ -2047,7 +2047,7 @@ local espgoldbtn = window_esp:AddToggle({
 				setup(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)])
 			end
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.espgold
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.espgold
 			addconnect:Disconnect()
 
 			for i,v in pairs(esptable.gold) do
@@ -2119,7 +2119,7 @@ local noseekbtn = window_entities:AddToggle({
 				end
 			end)
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.noseek
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.noseek
 			addconnect:Disconnect()
 		end
 	end
@@ -2186,7 +2186,7 @@ if hookmetamethod and newcclosure and getnamecallmethod then
 		return old(self,...)
 	end))
 else
-	warnmessage("POOPDOORS EDITED v"..currentver, "You need to have hookmetamethod and newcclosure and getnamecallmethod functions for 'always win heartbeat'.", 7)
+	warnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to have hookmetamethod and newcclosure and getnamecallmethod functions for 'always win heartbeat'.", 7)
 end
 
 --[[local avoidrushambushbtn = window_entities:AddToggle({
@@ -2388,7 +2388,7 @@ if fireproximityprompt then
 		end
 	})
 else
-	oldwarnmessage("POOPDOORS EDITED v"..currentver, "You need to have fireproximityprompt function for 'skip room'.", 7)	
+	oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to have fireproximityprompt function for 'skip room'.", 7)	
 end
 
 window_roomsdoors:AddLabel({ Name = "You need to be close to the\nlibrary exit for this to work."})
@@ -2459,7 +2459,7 @@ if fireproximityprompt then
 	})
 	buttons.autoskiprooms = autoskiproomsbtn
 else
-	oldwarnmessage("POOPDOORS EDITED v"..currentver, "You need to have fireproximityprompt function for 'skip room'.", 7)
+	oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to have fireproximityprompt function for 'skip room'.", 7)
 end
 
 local elevatorbreakerbox = false
@@ -2523,7 +2523,7 @@ local nogatesbtn = window_misc:AddToggle({
 				end
 			end)
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.nogates
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.nogates
 			addconnect:Disconnect()
 		end
 	end
@@ -2576,7 +2576,7 @@ local nopuzzlebtn = window_misc:AddToggle({
 				end
 			end)
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.nopuzzle
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.nopuzzle
 			addconnect:Disconnect()
 		end
 	end
@@ -2605,7 +2605,7 @@ local noskeledoorsbtn = window_misc:AddToggle({
 				end 
 			end)
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.noskeledoors
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.noskeledoors
 			addconnect:Disconnect()
 		end
 	end
@@ -2666,7 +2666,7 @@ local getcodebtn = window_misc:AddToggle({
 				end
 			end)
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.getcode
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.getcode
 			addconnect:Disconnect()
 		end
 	end
@@ -2701,7 +2701,7 @@ local roomsnolockbtn = window_misc:AddToggle({
 				check(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)])
 			end)
 
-			repeat task.wait() until POOPDOORSLOADED == false or not flags.roomsnolock
+			repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.roomsnolock
 			addconnect:Disconnect()
 		end
 	end
@@ -3049,7 +3049,7 @@ if fireproximityprompt then
 					end
 
 					task.spawn(function()
-						repeat task.wait() until POOPDOORSLOADED == false or not flags.draweraura
+						repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.draweraura
 						subaddcon:Disconnect() 
 					end)
 				end
@@ -3066,14 +3066,14 @@ if fireproximityprompt then
 				end
 				setup(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)])
 
-				repeat task.wait() until POOPDOORSLOADED == false or not flags.draweraura
+				repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.draweraura
 				addconnect:Disconnect()
 			end
 		end
 	})
 	buttons.draweraura = draweraurabtn
 else
-	oldwarnmessage("POOPDOORS EDITED v"..currentver, "You need to have fireproximityprompt function for 'loot aura'.", 7)
+	oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to have fireproximityprompt function for 'loot aura'.", 7)
 end
 
 if fireproximityprompt then
@@ -3133,7 +3133,7 @@ if fireproximityprompt then
 					end
 
 					task.spawn(function()
-						repeat task.wait() until POOPDOORSLOADED == false or not flags.bookcollecter
+						repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.bookcollecter
 						subaddcon:Disconnect() 
 					end)
 				end
@@ -3155,7 +3155,7 @@ if fireproximityprompt then
 					setup(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)])
 					--	end
 
-					repeat task.wait() until POOPDOORSLOADED == false or not flags.bookcollecter
+					repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.bookcollecter
 					addconnect:Disconnect()
 				end
 			end
@@ -3163,7 +3163,7 @@ if fireproximityprompt then
 	})
 	buttons.bookcollecter = bookcollecterbtn
 else
-	oldwarnmessage("POOPDOORS EDITED v"..currentver, "You need to have fireproximityprompt function for 'book aura'.", 7)
+	oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to have fireproximityprompt function for 'book aura'.", 7)
 end
 
 if fireproximityprompt then
@@ -3223,7 +3223,7 @@ if fireproximityprompt then
 					end
 
 					task.spawn(function()
-						repeat task.wait() until POOPDOORSLOADED == false or not flags.breakercollecter
+						repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.breakercollecter
 						subaddcon:Disconnect() 
 					end)
 				end
@@ -3245,7 +3245,7 @@ if fireproximityprompt then
 					setup(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)])
 					--	end
 
-					repeat task.wait() until POOPDOORSLOADED == false or not flags.breakercollecter
+					repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.breakercollecter
 					addconnect:Disconnect()
 				end
 			end
@@ -3253,7 +3253,7 @@ if fireproximityprompt then
 	})
 	buttons.breakercollecter = breakercollecterbtn
 else
-	oldwarnmessage("POOPDOORS EDITED v"..currentver, "You need to have fireproximityprompt function for 'book aura'.", 7)
+	oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to have fireproximityprompt function for 'book aura'.", 7)
 end
 
 if fireproximityprompt then
@@ -3314,7 +3314,7 @@ if fireproximityprompt then
 					end
 
 					task.spawn(function()
-						repeat task.wait() until POOPDOORSLOADED == false or not flags.autopulllever
+						repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.autopulllever
 						subaddcon:Disconnect() 
 					end)
 				end
@@ -3334,7 +3334,7 @@ if fireproximityprompt then
 					setup(workspace.CurrentRooms[tostring(game:GetService("ReplicatedStorage").GameData.LatestRoom.Value)])
 					--	end
 
-					repeat task.wait() until POOPDOORSLOADED == false or not flags.autopulllever
+					repeat task.wait() until NUNEZSCRIPTSLOADED == false or not flags.autopulllever
 					addconnect:Disconnect()
 				end
 			end
@@ -3342,7 +3342,7 @@ if fireproximityprompt then
 	})
 	buttons.autopulllever = autopullleverbtn
 else
-	oldwarnmessage("POOPDOORS EDITED v"..currentver, "You need to have fireproximityprompt function for 'lever aura'.", 7)
+	oldwarnmessage("NUÑEZ SCRIPTS v"..currentver, "You need to have fireproximityprompt function for 'lever aura'.", 7)
 end
 
 if #game.Players:GetChildren() <= 1 or #game.Players:GetChildren() == 0 then
@@ -3395,7 +3395,7 @@ if syn then
 			Callback = function()
 				syn.queue_on_teleport([[
 					game.Loaded:Wait()
-					loadstring(game:HttpGet(("https://raw.githubusercontent.com/mstudio45/poopdoors_edited/main/joinsolo.lua"),true))()
+					loadstring(game:HttpGet(("https://raw.githubusercontent.com/DarkSuffer/BasicallyAnDoors-EDITED/main/joinsolo.lua"),true))()
 				]])
 				game:GetService("TeleportService"):Teleport(6516141723, game:GetService("Players").LocalPlayer)
 			end
@@ -3407,7 +3407,7 @@ elseif queue_on_teleport then
 		Callback = function()
 			queue_on_teleport([[
 				game.Loaded:Wait()
-				loadstring(game:HttpGet(("https://raw.githubusercontent.com/mstudio45/poopdoors_edited/main/joinsolo.lua"),true))()	
+				loadstring(game:HttpGet(("https://raw.githubusercontent.com/DarkSuffer/BasicallyAnDoors-EDITED/main/joinsolo.lua"),true))()	
 			]])
 			game:GetService("TeleportService"):Teleport(6516141723, game:GetService("Players").LocalPlayer)
 		end
@@ -3701,7 +3701,7 @@ if game.ReplicatedStorage:WaitForChild("GameData"):WaitForChild("Floor").Value =
 			else
 				plr.DevComputerMovementMode = Enum.DevComputerMovementMode.KeyboardMouse
 				autoa1000:Set(false)
-				normalmessage("AUTO A-1000", "Finished walking to A-1000!", "Thanks for using POOPDOORS EDITED Auto A-1000.", 10)
+				normalmessage("AUTO A-1000", "Finished walking to A-1000!", "Thanks for using NUÑEZ SCRIPTS Auto A-1000.", 10)
 			end
 		else
 			plr.DevComputerMovementMode = Enum.DevComputerMovementMode.KeyboardMouse
@@ -3820,10 +3820,10 @@ function closegui()
 	VisualizerFolder:Destroy()
 	GlobalESPFolder:Destroy()
 	pcall(function() MobileButton["1"]:Destroy() end)
-	pcall(function() getgenv().POOPDOORSLOADED = false;POOPDOORSLOADED = false end)
+	pcall(function() getgenv().NUNEZSCRIPTSLOADED = false;NUNEZSCRIPTSLOADED = false end)
 
 	task.wait(.1)
-	normalmessage("POOPDOORS EDITED v"..currentver, "GUI closed!")
+	normalmessage("NUÑEZ SCRIPTS v"..currentver, "GUI closed!")
 end
 window_guisettings:AddButton({
 	Name = "Close Gui",
@@ -3835,7 +3835,7 @@ window_guisettings:AddButton({
 	Name = "Reload Gui",
 	Callback = function()
 		task.spawn(function()
-			repeat task.wait(.1) until POOPDOORSLOADED == false or POOPDOORSLOADED == nil
+			repeat task.wait(.1) until NUNEZSCRIPTSLOADED == false or NUNEZSCRIPTSLOADED == nil
 			loadstring(game:HttpGet((gui_data.loadstring),true))()
 		end)
 		Library.unload()
@@ -3937,7 +3937,7 @@ end)
 
 scriptLoaded = true
 normalmessage(
-	"POOPDOORS EDITED v"..currentver, "Script loaded!", 
-	"Took "..(os.time() - POOPDOORS_START_TIME).."ms.", 
+	"NUÑEZ SCRIPTS v"..currentver, "Script loaded!", 
+	"Took "..(os.time() - NUNEZSCRIPTS_START_TIME).."ms.", 
 	5
 )
